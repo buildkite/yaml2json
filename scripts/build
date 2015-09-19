@@ -1,0 +1,19 @@
+echo "Building yaml2json 💨"
+echo ""
+
+rm -rf dist
+mkdir -p dist
+
+echo "Compiling for OSX"
+GOOS=darwin GOARCH=amd64 go build -o dist/yaml2json-darwin-amd64 main.go
+chmod +x dist/yaml2json-darwin-amd64
+echo "👍  dist/yaml2json-darwin-amd64"
+echo ""
+
+echo "Compiling for Linux"
+GOOS=linux GOARCH=amd64 go build -o dist/yaml2json-linux-amd64 main.go
+chmod +x dist/yaml2json-linux-amd64
+echo "👍  dist/yaml2json-linux-amd64"
+
+echo ""
+echo "All done! ✅"
