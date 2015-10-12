@@ -10,7 +10,7 @@ Pass it a YAML file and it'll output JSON
 
 ```
 $ yaml2json examples/basic.yml
-{"age":30,"name":"John"}
+{"age":30,"human":true,"name":"John"}
 ```
 
 It will return an exit code if it fails to succesfully parse the YAML.
