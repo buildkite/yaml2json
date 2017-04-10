@@ -4,6 +4,9 @@ echo ""
 rm -rf dist
 mkdir -p dist
 
+echo "Download Dependency"
+go get github.com/ghodss/yaml
+
 echo "Compiling for OSX"
 GOOS=darwin GOARCH=amd64 go build -o dist/yaml2json-darwin-amd64 main.go
 chmod +x dist/yaml2json-darwin-amd64
