@@ -9,15 +9,23 @@ import (
 )
 
 func main() {
-	if len(os.Args) == 1 {
-		fmt.Printf("Usage: yaml2json [file]\n")
-		os.Exit(1)
-	}
+	var err error
+	var input []byte
 
-	file := os.Args[1]
-	input, err := ioutil.ReadFile(file)
-	if err != nil {
-		fmt.Printf("Failed to read file: %v\n", err)
+	if len(os.Args) == 1 {
+		input, err = ioutil.ReadAll(os.Stdin)
+		if err != nil {
+			fmt.Printf("Failed to read stdin: %v\n", err)
+			os.Exit(1)
+		}
+	} else if len(os.Args) == 2 {
+		input, err = ioutil.ReadFile(os.Args[1])
+		if err != nil {
+			fmt.Printf("Failed to read file: %v\n", err)
+			os.Exit(1)
+		}
+	} else {
+		fmt.Printf("Usage: yaml2json [file]\n")
 		os.Exit(1)
 	}
 
