@@ -8,13 +8,19 @@ echo "Download Dependency"
 go get github.com/ghodss/yaml
 
 echo "Compiling for OSX"
-GOOS=darwin GOARCH=amd64 go build -o dist/yaml2json-darwin-amd64 main.go
+GOOS=darwin GOARCH=amd64 go build \
+  -gcflags="-trimpath $PWD" \
+  -ldflags="-s -w" \
+  -o dist/yaml2json-darwin-amd64
 chmod +x dist/yaml2json-darwin-amd64
 echo "👍  dist/yaml2json-darwin-amd64"
 echo ""
 
 echo "Compiling for Linux"
-GOOS=linux GOARCH=amd64 go build -o dist/yaml2json-linux-amd64 main.go
+GOOS=linux GOARCH=amd64 go build \
+  -gcflags="-trimpath $PWD" \
+  -ldflags="-s -w" \
+  -o dist/yaml2json-linux-amd64
 chmod +x dist/yaml2json-linux-amd64
 echo "👍  dist/yaml2json-linux-amd64"
 
