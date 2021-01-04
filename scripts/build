@@ -7,10 +7,16 @@ mkdir -p dist
 echo "Download Dependency"
 go get github.com/ghodss/yaml
 
-echo "Compiling for OSX"
+echo "Compiling for Intel macOS"
 GOOS=darwin GOARCH=amd64 go build -o dist/yaml2json-darwin-amd64 main.go
 chmod +x dist/yaml2json-darwin-amd64
 echo "👍  dist/yaml2json-darwin-amd64"
+echo ""
+
+echo "Compiling for ARM macOS"
+GOOS=darwin GOARCH=arm64 go build -o dist/yaml2json-darwin-arm64 main.go
+chmod +x dist/yaml2json-darwin-arm64
+echo "👍  dist/yaml2json-darwin-arm64"
 echo ""
 
 echo "Compiling for Linux"
