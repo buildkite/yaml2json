@@ -1,6 +1,6 @@
 steps:
   - name: ":hammer: Build"
-    command: make dist
+    command: scripts/build
     artifact_paths: "dist/**.gz"
     plugins:
       docker-compose#v1.7.0:
