@@ -44,12 +44,6 @@ direnv allow
 go run main.go examples/basic.yml
 ```
 
-### Releasing
-
-1. Update the version in `version.go`, merge into the main branch
-2. Unblock the release step on Buildkite for that commit
-3. A tag and GitHub release will be produced
-
 ## Contributing
 
 1. Fork it

@@ -5,11 +5,3 @@ steps:
     plugins:
       docker-compose#v1.7.0:
         run: yaml2json
-
-  # - block: ":rocket: Release"
-
-  # - name: ":octocat:"
-  #   command: .buildkite/steps/release
-  #   branches: "master"
-  #   agents:
-  #     queue: "deploy"
