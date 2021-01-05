@@ -6,10 +6,10 @@ steps:
       docker-compose#v1.7.0:
         run: yaml2json
 
-  - block: ":rocket: Release"
+  # - block: ":rocket: Release"
 
-  - name: ":octocat:"
-    command: .buildkite/steps/release
-    branches: "master"
-    agents:
-      queue: "deploy"
+  # - name: ":octocat:"
+  #   command: .buildkite/steps/release
+  #   branches: "master"
+  #   agents:
+  #     queue: "deploy"
