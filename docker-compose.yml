@@ -1,0 +1,6 @@
+yaml2json:
+  build: .
+  volumes:
+    - ./:/go/src/github.com/buildkite/yaml2json
+  environment:
+    - GITHUB_RELEASE_ACCESS_TOKEN

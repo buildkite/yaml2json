@@ -1,3 +1,6 @@
+#!/bin/bash
+set -e
+
 echo "Building yaml2json 💨"
 echo ""
 
@@ -7,16 +10,25 @@ mkdir -p dist
 echo "Download Dependency"
 go get github.com/ghodss/yaml
 
-echo "Compiling for OSX"
-GOOS=darwin GOARCH=amd64 go build -o dist/yaml2json-darwin-amd64 main.go
+echo "Compiling for Intel macOS"
+GOOS=darwin GOARCH=amd64 go build -o dist/yaml2json-darwin-amd64 cmd/yaml2json/main.go
 chmod +x dist/yaml2json-darwin-amd64
 echo "👍  dist/yaml2json-darwin-amd64"
+gzip -c dist/yaml2json-darwin-amd64 > dist/yaml2json-darwin-amd64.gz
+echo ""
+
+echo "Compiling for ARM macOS"
+GOOS=darwin GOARCH=arm64 go build -o dist/yaml2json-darwin-arm64 cmd/yaml2json/main.go
+chmod +x dist/yaml2json-darwin-arm64
+echo "👍  dist/yaml2json-darwin-arm64"
+gzip -c dist/yaml2json-darwin-arm64 > dist/yaml2json-darwin-arm64.gz
 echo ""
 
 echo "Compiling for Linux"
-GOOS=linux GOARCH=amd64 go build -o dist/yaml2json-linux-amd64 main.go
+GOOS=linux GOARCH=amd64 go build -o dist/yaml2json-linux-amd64 cmd/yaml2json/main.go
 chmod +x dist/yaml2json-linux-amd64
 echo "👍  dist/yaml2json-linux-amd64"
+gzip -c dist/yaml2json-linux-amd64 > dist/yaml2json-linux-amd64.gz
 
 echo ""
 echo "All done! ✅"

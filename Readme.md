@@ -17,14 +17,17 @@ It will return an exit code if it fails to succesfully parse the YAML.
 
 ### Building
 
-Running the build script will create 2 files in the `dist` folder. One for OSX and one for Linux.
+Running the build script will create executables in the `dist` folder. One for Intel macOS, one for ARM macOS, and one for Linux.
 
 ```
 $ ./scripts/build
 Building yaml2json 💨
 
-Compiling for OSX
+Compiling for Intel macOS
 👍  dist/yaml2json-darwin-amd64
+
+Compiling for ARM macOS
+👍  dist/yaml2json-darwin-arm64
 
 Compiling for Linux
 👍  dist/yaml2json-linux-amd64

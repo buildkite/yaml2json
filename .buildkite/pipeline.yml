@@ -1,0 +1,7 @@
+steps:
+  - name: ":hammer: Build"
+    command: scripts/build
+    artifact_paths: "dist/**.gz"
+    plugins:
+      docker-compose#v1.7.0:
+        run: yaml2json

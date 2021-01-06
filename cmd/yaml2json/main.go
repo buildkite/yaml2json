@@ -6,11 +6,12 @@ import (
 	"os"
 
 	"github.com/ghodss/yaml"
+	"github.com/buildkite/yaml2json"
 )
 
 func main() {
 	if len(os.Args) == 1 {
-		fmt.Printf("Usage: yaml2json [file]\n")
+		fmt.Printf("yaml2json v%s\nUsage: yaml2json [file]\n", yaml2json.Version())
 		os.Exit(1)
 	}
 
