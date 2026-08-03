@@ -2,11 +2,10 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
 	"os"
 
-	"github.com/ghodss/yaml"
 	"github.com/buildkite/yaml2json"
+	"github.com/ghodss/yaml"
 )
 
 func main() {
@@ -16,7 +15,7 @@ func main() {
 	}
 
 	file := os.Args[1]
-	input, err := ioutil.ReadFile(file)
+	input, err := os.ReadFile(file)
 	if err != nil {
 		fmt.Printf("Failed to read file: %v\n", err)
 		os.Exit(1)

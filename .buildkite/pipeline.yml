@@ -3,5 +3,7 @@ steps:
     command: scripts/build
     artifact_paths: "dist/**.gz"
     plugins:
-      docker-compose#v1.7.0:
-        run: yaml2json
+      - docker-compose#v4.14.0:
+          config: docker-compose.yml
+          cli-version: 2
+          run: yaml2json
