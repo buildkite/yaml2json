@@ -15,6 +15,11 @@ func main() {
 	}
 
 	file := os.Args[1]
+	if file == "--version" {
+		fmt.Printf("yaml2json v%s\n", yaml2json.Version())
+		return
+	}
+
 	input, err := os.ReadFile(file)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Failed to read file: %v\n", err)
